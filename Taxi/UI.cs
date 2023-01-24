@@ -8,5 +8,12 @@ namespace Taxi
 {
     internal class UI
     {
+        public static void welcome()
+        {
+            Console.Clear();
+            Console.WriteLine("+-------------------------+");
+            Console.WriteLine("|         Witaj           |");
+            Console.WriteLine("+-------------------------+");
+        }
     }
 }

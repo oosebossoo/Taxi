@@ -10,6 +10,8 @@ namespace Taxi
     {
         static void Main(string[] args)
         {
+            UI.welcome();
+
             List<Cab> CabList = new List<Cab>() {
                 new Cab() { Id = 0, Name = "Opel", DistrictId = 0, Status = false},
                 new Cab() { Id = 1, Name = "Ferrari", DistrictId = 0, Status = false},
@@ -36,7 +38,6 @@ namespace Taxi
             {
                 Console.WriteLine(district.Name);
             }
-            Console.ReadKey();
         }
     }
 }
