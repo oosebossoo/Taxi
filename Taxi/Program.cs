@@ -10,34 +10,29 @@ namespace Taxi
     {
         static void Main(string[] args)
         {
-            UI.welcome();
+            Engine Engine = new Engine();
+            Engine.loadAllCabs();
+            Engine.loadAllDistricts();
 
-            List<Cab> CabList = new List<Cab>() {
-                new Cab() { Id = 0, Name = "Opel", DistrictId = 0, Status = false},
-                new Cab() { Id = 1, Name = "Ferrari", DistrictId = 0, Status = false},
-                new Cab() { Id = 2, Name = "Ferrari", DistrictId = 0, Status = false},
-                new Cab() { Id = 3, Name = "Ferrari", DistrictId = 0, Status = false},
-                new Cab() { Id = 4, Name = "Ferrari", DistrictId = 0, Status = false}
-            };
-
-            List<District> DistrictList = new List<District>() {
-                new District() { Id = 1, Name = "Łódź", Distancetocenter = -2},
-                new District() { Id = 2, Name = "Warszawa", Distancetocenter = -2 },
-                new District() { Id = 3, Name = "Warszawa", Distancetocenter = -2 },
-                new District() { Id = 4, Name = "Warszawa", Distancetocenter = -2 },
-            };
-
-            foreach (var cab in CabList)
+            while (true)
             {
-                Console.WriteLine(cab.Name);
+                if (Engine.controll()) break;
+                Console.ReadKey();
             }
 
-            Console.WriteLine("-----------------");
+            //foreach (var cab in engine.AllCabs)
+            //{
+            //    Console.WriteLine(cab.Name);
+            //}
 
-            foreach (var district in DistrictList)
-            {
-                Console.WriteLine(district.Name);
-            }
+            //Console.WriteLine("-----------------");
+
+            //foreach (var district in engine.AllDistrict)
+            //{
+            //    Console.WriteLine(district.Name);
+            //}
+
+            Console.ReadKey();
         }
     }
 }
