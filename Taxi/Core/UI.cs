@@ -30,9 +30,9 @@ namespace Taxi
         public void welcome()
         {
             Console.Clear();
-            Console.WriteLine("+-------------------------+");
-            Console.WriteLine("|         Witaj           |");
-            Console.WriteLine("+-------------------------+");
+            Console.WriteLine("+------------------------------+");
+            Console.WriteLine("|             Witaj            |");
+            Console.WriteLine("+------------------------------+");
         }
 
         public void blank()
