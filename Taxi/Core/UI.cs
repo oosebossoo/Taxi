@@ -33,6 +33,7 @@ namespace Taxi
             Console.WriteLine("+------------------------------+");
             Console.WriteLine("|             Witaj            |");
             Console.WriteLine("+------------------------------+");
+            Console.WriteLine("Zamów taxi");
         }
 
         public void blank()
