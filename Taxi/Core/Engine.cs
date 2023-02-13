@@ -56,7 +56,7 @@ namespace Taxi
         {
             // if () ;
             view.loadView();
-            view.loadView(AllDistrict);
+            // view.loadView(AllDistrict);
             return false;
         }
 

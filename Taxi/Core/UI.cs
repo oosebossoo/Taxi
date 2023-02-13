@@ -37,7 +37,7 @@ namespace Taxi
             Console.WriteLine("|             Witaj            |");
             Console.WriteLine("+------------------------------+");
             Console.WriteLine("Zamów taxi");
-            this.viewName = "districtList";
+            // this.viewName = "districtList";
         }
 
         public void districtList(List<District> districts)
