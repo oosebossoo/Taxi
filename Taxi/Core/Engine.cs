@@ -54,8 +54,9 @@ namespace Taxi
 
         public bool controll()
         {
+            // if () ;
             view.loadView();
-            // 
+            view.loadView(AllDistrict);
             return false;
         }
 

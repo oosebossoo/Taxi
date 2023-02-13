@@ -15,12 +15,15 @@ namespace Taxi
             this.viewName = "start";
         }
 
-        public void loadView()
+        public void loadView(List<District> districts = null)
         {
             switch (viewName)
             {
                 case "start":
                     welcome();
+                    break;
+                case "districtList":
+                    districtList(districts);
                     break;
                 default:
                     blank();
@@ -34,6 +37,29 @@ namespace Taxi
             Console.WriteLine("|             Witaj            |");
             Console.WriteLine("+------------------------------+");
             Console.WriteLine("Zamów taxi");
+            this.viewName = "districtList";
+        }
+
+        public void districtList(List<District> districts)
+        {
+            foreach(var district in districts) {
+                Console.WriteLine(district.Name);
+            }
+            Console.WriteLine("Wybierz id dzielnicy");
+
+            this.viewName = "start";
+        }
+
+        public void taxiList()
+        {
+            Console.Clear();
+            Console.WriteLine("+------------------------------+");
+            Console.WriteLine("|             Witaj            |");
+            Console.WriteLine("+------------------------------+");
+            Console.WriteLine("Zamów taxi");
+            // foreach() {
+            //
+            //}
         }
 
         public void blank()
