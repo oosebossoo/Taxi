@@ -33,10 +33,9 @@ namespace Taxi
         public void welcome()
         {
             Console.Clear();
-            Console.WriteLine("+------------------------------+");
-            Console.WriteLine("|             Witaj            |");
-            Console.WriteLine("+------------------------------+");
-            Console.WriteLine("Zamów taxi");
+            Console.WriteLine("+-------------------------------------------------+");
+            Console.WriteLine("|     Witaj w aplikacji do zamawiania taksówek!   |");
+            Console.WriteLine("+-------------------------------------------------+");
             // this.viewName = "districtList";
         }
 

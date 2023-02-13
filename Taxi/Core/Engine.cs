@@ -33,22 +33,22 @@ namespace Taxi
         public void loadAllCabs()
         {
             AllCabs = new List<Cab>() {
-                new Cab() { Id = 1, Name = "Opel", DistrictId = 1, Status = false},
-                new Cab() { Id = 2, Name = "Ferrari", DistrictId = 2, Status = false},
-                new Cab() { Id = 3, Name = "Ferrari", DistrictId = 3, Status = false},
-                new Cab() { Id = 4, Name = "Ferrari", DistrictId = 4, Status = false},
-                new Cab() { Id = 5, Name = "Ferrari", DistrictId = 5, Status = false}
+                new Cab() { Id = 1, Name = "Ford Mondeo", DistrictId = 1, Status = false},
+                new Cab() { Id = 2, Name = "Dacia Logan", DistrictId = 2, Status = false},
+                new Cab() { Id = 3, Name = "Toyota Avensis", DistrictId = 3, Status = false},
+                new Cab() { Id = 4, Name = "Mercedes E220", DistrictId = 4, Status = false},
+                new Cab() { Id = 5, Name = "Huindai Lantra", DistrictId = 5, Status = false}
             };
         }
 
         public void loadAllDistricts()
         {
             AllDistrict = new List<District>() {
-                new District(AllCabs, 1) { Name = "Łódź", Distancetocenter = -2},
-                new District(AllCabs, 2) { Name = "Warszawa", Distancetocenter = -2 },
-                new District(AllCabs, 3) { Name = "Warszawa", Distancetocenter = -2 },
-                new District(AllCabs, 4) { Name = "Warszawa", Distancetocenter = -2 },
-                new District(AllCabs, 5) { Name = "Warszawa", Distancetocenter = -2 },
+                new District(AllCabs, 1) { Name = "Retkinia", Distancetocenter = -2 },
+                new District(AllCabs, 2) { Name = "Łódź Kaliska", Distancetocenter = -1 },
+                new District(AllCabs, 3) { Name = "Śródmieście", Distancetocenter = 0 },
+                new District(AllCabs, 4) { Name = "Widzew", Distancetocenter = 1 },
+                new District(AllCabs, 5) { Name = "Janów", Distancetocenter = 3 },
             };
         }
 
