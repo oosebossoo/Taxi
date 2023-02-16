@@ -66,10 +66,10 @@ namespace Taxi
         public void loadAllCabs()
         {
             AllCabs = new List<Cab>() {
-                new Cab() { Id = 1, Name = "Ford Mondeo", DistrictId = 1, Status = false},
-                new Cab() { Id = 2, Name = "Dacia Logan", DistrictId = 2, Status = false},
+                new Cab() { Id = 1, Name = "Ford Mondeo   ", DistrictId = 1, Status = false},
+                new Cab() { Id = 2, Name = "Dacia Logan   ", DistrictId = 2, Status = false},
                 new Cab() { Id = 3, Name = "Toyota Avensis", DistrictId = 3, Status = false},
-                new Cab() { Id = 4, Name = "Mercedes E220", DistrictId = 4, Status = false},
+                new Cab() { Id = 4, Name = "Mercedes E220 ", DistrictId = 4, Status = false},
                 new Cab() { Id = 5, Name = "Huindai Lantra", DistrictId = 5, Status = false}
             };
         }
