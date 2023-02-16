@@ -88,7 +88,7 @@ namespace Taxi
 
         public void summary(string[] data)
         {
-            Console.WriteLine($"Zamówiono: {data[0]}, szacowany czas oczekiwania to: {data[1]}");
+            Console.WriteLine($"Zamówiono: {data[0]}, szacowany czas oczekiwania to: {data[1]}minut");
             Console.ReadKey();
         }
     }
