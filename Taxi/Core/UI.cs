@@ -118,7 +118,7 @@ namespace Taxi
                 {
                     Console.Write("[ ] ");
                 }
-                Console.Write($"{districts[key].Name} |     ");
+                Console.Write($"{districts[key].Name} |  ");
                 if (districts[key].Cabs.Count < 1)
                 {
                     Console.ForegroundColor = ConsoleColor.Red;

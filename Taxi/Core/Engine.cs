@@ -77,11 +77,11 @@ namespace Taxi
         public void loadAllDistricts()
         {
             AllDistrict = new List<District>() {
-                new District(AllCabs, 1) { Name = "Retkinia", Distancetocenter = -2 },
+                new District(AllCabs, 1) { Name = "Retkinia    ", Distancetocenter = -2 },
                 new District(AllCabs, 2) { Name = "Łódź Kaliska", Distancetocenter = -1 },
-                new District(AllCabs, 3) { Name = "Śródmieście", Distancetocenter = 0 },
-                new District(AllCabs, 4) { Name = "Widzew", Distancetocenter = 1 },
-                new District(AllCabs, 5) { Name = "Janów", Distancetocenter = 3 },
+                new District(AllCabs, 3) { Name = "Śródmieście ", Distancetocenter = 0 },
+                new District(AllCabs, 4) { Name = "Widzew      ", Distancetocenter = 1 },
+                new District(AllCabs, 5) { Name = "Janów       ", Distancetocenter = 3 },
             };
         }
 
