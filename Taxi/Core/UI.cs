@@ -55,12 +55,7 @@ namespace Taxi
             Console.WriteLine("");
             Console.WriteLine("   | NAZWA | ILOŚĆ DOSTĘPNYCH TAKSÓWEK |");
             for (int key = 0; key < districts.Count; key++) {
-                if (key == pos) {
-                    Console.Write("[*] ");
-                } else {
-                    Console.Write("[ ] ");
-                }
-                Console.Write($"{districts[key].Name} | liczba taxi: ");
+                Console.Write($"   | {districts[key].Name} |      ");
                 if (districts[key].Cabs.Count < 1) {
                     Console.ForegroundColor = ConsoleColor.Red;
                 }
@@ -74,7 +69,7 @@ namespace Taxi
             Console.WriteLine("Aby powrócić do menu kliknij escape...");
         }
 
-        public void cabList(List<Cab> cabs)
+        public void cabList(List<Cab> cabs, List<District> districts)
         {
             Console.Clear();
             Console.WriteLine("Lista taksówek");
@@ -83,15 +78,17 @@ namespace Taxi
             Console.WriteLine(" | ID |   SAMOCHÓD   | STATUS | AKTUALNA DZIELNICA |");
 
             foreach ( var cab in cabs) {
+                Console.Write($" |  {cab.Id} | {cab.Name} ");
                 if (cab.Status) {
                     Console.ForegroundColor = ConsoleColor.Red;
-                    Console.WriteLine($" |  {cab.Id} | {cab.Name} | Zajęta");
+                    Console.Write("| Zajęta");
                 } else {
                     Console.ForegroundColor = ConsoleColor.Green;
-                    Console.WriteLine($" |  {cab.Id} | {cab.Name} | Wolna");
+                    Console.Write("| Wolna");
                 }
+                Console.ForegroundColor = ConsoleColor.White;
+                Console.WriteLine($" | {districts.Where(x => x.Id == cab.DistrictId).ToList()[0].Name}");
             }
-            Console.ForegroundColor = ConsoleColor.White;
             Console.WriteLine("");
             Console.WriteLine("Aby powrócić do menu kliknij escape...");
             
@@ -121,7 +118,7 @@ namespace Taxi
                 {
                     Console.Write("[ ] ");
                 }
-                Console.Write($"{districts[key].Name} | liczba taxi: ");
+                Console.Write($"{districts[key].Name} |     ");
                 if (districts[key].Cabs.Count < 1)
                 {
                     Console.ForegroundColor = ConsoleColor.Red;

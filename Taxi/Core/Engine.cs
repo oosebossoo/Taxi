@@ -96,9 +96,11 @@ namespace Taxi
                     confirm();
                     break;
                 case ConsoleKey.UpArrow:
+                    if (view.pos == 0) break;
                     view.pos = view.pos - 1;
                     break;
                 case ConsoleKey.DownArrow:
+                    if ((view.pos == 2 && view.viewName == "menu") || (view.pos == 4 && view.viewName == "order")) break;
                     view.pos = view.pos + 1;
                     break;
                 case ConsoleKey.Escape:
@@ -121,7 +123,10 @@ namespace Taxi
                     view.districtList(AllDistrict);
                     break;
                 case "cabList":
-                    view.cabList(AllCabs);
+                    view.cabList(AllCabs, AllDistrict);
+                    break;
+                case "order":
+                    view.order(AllDistrict);
                     break;
                 default:
                     break;
@@ -135,7 +140,7 @@ namespace Taxi
                 case "menu":
                     if (view.pos == 0) { view.viewName = "cabList"; }
                     if (view.pos == 1) { view.viewName = "districtList"; }
-                    if (view.pos == 2) { view.viewName = "districtList"; }
+                    if (view.pos == 2) { view.viewName = "order"; }
                     view.pos = 0;
                     break;
                 case "order":
