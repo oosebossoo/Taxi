@@ -28,8 +28,7 @@ namespace Taxi
             var district = AllDistrict.Where(x => x.Id == view.pos + 1).First();
             if (district.Cabs.Where(x => x.Status == false).ToList().Count > 0) {
                 cabId = district.Cabs.Where(x => x.Status == false).ToList()[0].Id;
-                Console.WriteLine(cabId);
-            } else if (district.Cabs.Where(x => x.Status == false).ToList().Count() == 0) {
+            } else if (district.Cabs.Where(x => x.Status == false).ToList().Count == 0 && AllCabs.Where(x => x.Status == false).ToList().Count > 0) {
                 var cabs = AllCabs.Where(x => x.Status == false).ToList();
                 int road = 100;
                 int id = 0;
@@ -53,8 +52,7 @@ namespace Taxi
                 }
                 cabId = id;
             }
-
-            var cab = AllCabs.Where(x => x.Id == cabId).First();
+            var cab = AllCabs.Where(x => x.Id == cabId).ToList()[0];
             AllDistrict.Where(x => x.Id == cab.DistrictId).ToList()[0].Cabs.Remove(cab);
             cab.Status = true;
             district.Cabs.Add(cab);
