@@ -117,9 +117,6 @@ namespace Taxi
                 case "menu":
                     view.menu();
                     break;
-                case "start":
-                    view.welcome();
-                    break;
                 case "districtList":
                     view.districtList(AllDistrict);
                     break;

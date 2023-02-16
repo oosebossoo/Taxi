@@ -14,7 +14,7 @@ namespace Taxi
 
         public UI()
         {
-            this.viewName = "start";
+            this.viewName = "menu";
             this.pos = 0;
         }
 
@@ -23,18 +23,14 @@ namespace Taxi
 
         }
 
-        public void welcome()
+    
+
+        public void menu() 
         {
             Console.Clear();
             Console.WriteLine("+-------------------------------------------------+");
             Console.WriteLine("|     Witaj w aplikacji do zamawiania taksówek!   |");
             Console.WriteLine("+-------------------------------------------------+");
-            this.viewName = "menu";
-        }
-
-        public void menu() 
-        {
-            Console.Clear();
             string[] list = { "LISTA WSZYSTKICH TAKSÓWEK", "LISTA WSZYSTKICH DZIELNIC", "ZAMÓW TAKSÓWKĘ" };
             for (int key = 0; key < list.Count(); key++)
             {
@@ -48,7 +44,7 @@ namespace Taxi
                 }
                 Console.WriteLine($"{list[key]}");
             }
-
+            Console.WriteLine();
             Console.WriteLine("Kliknij escape jeśli chcesz zamknąć program");
         }
 
