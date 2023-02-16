@@ -51,14 +51,16 @@ namespace Taxi
         public void districtList(List<District> districts)
         {
             Console.WriteLine("Dokąd chcesz zamówić taksówke?");
+            Console.WriteLine("-----------------------------------");
             Console.WriteLine("");
+            Console.WriteLine("   | NAZWA | ILOŚĆ DOSTĘPNYCH TAKSÓWEK |");
             for (int key = 0; key < districts.Count; key++) {
                 if (key == pos) {
                     Console.Write("[*] ");
                 } else {
                     Console.Write("[ ] ");
                 }
-                Console.Write($"{districts[key].Name}, liczba taxi: ");
+                Console.Write($"{districts[key].Name} | liczba taxi: ");
                 if (districts[key].Cabs.Count < 1) {
                     Console.ForegroundColor = ConsoleColor.Red;
                 }
@@ -74,22 +76,24 @@ namespace Taxi
         {
             Console.Clear();
             Console.WriteLine("Lista taksówek");
+            Console.WriteLine("-------------------------");
             Console.WriteLine("");
+            Console.WriteLine(" | ID |   SAMOCHÓD   | STATUS | AKTUALNA DZIELNICA |");
 
             foreach ( var cab in cabs) {
                 if (cab.Status) {
                     Console.ForegroundColor = ConsoleColor.Red;
-                    Console.WriteLine($" - {cab.Id} {cab.Name} Zajęta");
+                    Console.WriteLine($" - {cab.Id} | {cab.Name} | Zajęta");
                 } else {
                     Console.ForegroundColor = ConsoleColor.Green;
-                    Console.WriteLine($" - {cab.Id} {cab.Name} Wolna");
+                    Console.WriteLine($" - {cab.Id} | {cab.Name} | Wolna");
                 }
             }
         }
 
         public void summary(string[] data)
         {
-            Console.WriteLine($"Zamówiono: {data[0]}, szacowany czas oczekiwania to: {data[1]}minut");
+            Console.WriteLine($"Zamówiono: {data[0]}, szacowany czas oczekiwania to: {data[1]} minut");
             Console.ReadKey();
         }
     }
