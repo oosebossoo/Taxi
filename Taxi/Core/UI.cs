@@ -94,10 +94,13 @@ namespace Taxi
             Console.ForegroundColor = ConsoleColor.White;
             Console.WriteLine("");
             Console.WriteLine("Aby powrócić do menu kliknij escape...");
+            
         }
 
         public void summary(string[] data)
         {
+            Console.WriteLine("");
+            Console.ForegroundColor = ConsoleColor.Yellow;
             Console.WriteLine($"Zamówiono: {data[0]}, szacowany czas oczekiwania to: {data[1]} minut");
             Console.ReadKey();
         }
