@@ -149,6 +149,16 @@ namespace Taxi
         int calcTime(int cabId, int distId)
         {
             int time = 0;
+            if (cabId == distId) {
+                time = 4;
+            } else
+            {
+                var start = AllDistrict.Where(x => x.Id == cabId).ToList()[0];
+                var end = AllDistrict.Where(x => x.Id == distId).ToList()[0];
+                int road = Math.Abs(start.Distancetocenter) + Math.Abs(end.Distancetocenter);
+                time = road * 5;
+            }
+            
             return time;
         }
     }
