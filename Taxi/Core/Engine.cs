@@ -138,7 +138,7 @@ namespace Taxi
                     if (view.pos == 2) { view.viewName = "districtList"; }
                     view.pos = 0;
                     break;
-                case "districtList":
+                case "order":
                     string[] data = sendCab();
                     view.pos = 0;
                     view.summary(data);
@@ -151,8 +151,7 @@ namespace Taxi
             int time = 0;
             if (cabId == distId) {
                 time = 4;
-            } else
-            {
+            } else {
                 var start = AllDistrict.Where(x => x.Id == cabId).ToList()[0];
                 var end = AllDistrict.Where(x => x.Id == distId).ToList()[0];
                 int road = Math.Abs(start.Distancetocenter) + Math.Abs(end.Distancetocenter);

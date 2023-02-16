@@ -50,7 +50,7 @@ namespace Taxi
 
         public void districtList(List<District> districts)
         {
-            Console.WriteLine("Dokąd chcesz zamówić taksówke?");
+            Console.WriteLine("Lista dzielnic");
             Console.WriteLine("-----------------------------------");
             Console.WriteLine("");
             Console.WriteLine("   | NAZWA | ILOŚĆ DOSTĘPNYCH TAKSÓWEK |");
@@ -95,6 +95,36 @@ namespace Taxi
         {
             Console.WriteLine($"Zamówiono: {data[0]}, szacowany czas oczekiwania to: {data[1]} minut");
             Console.ReadKey();
+        }
+
+        public void order(List<District> districts)
+        {
+            Console.WriteLine("Dokąd chcesz zamówić taksówke?");
+            Console.WriteLine("-----------------------------------");
+            Console.WriteLine("");
+            Console.WriteLine("   | NAZWA | ILOŚĆ DOSTĘPNYCH TAKSÓWEK |");
+            for (int key = 0; key < districts.Count; key++)
+            {
+                if (key == pos)
+                {
+                    Console.Write("[*] ");
+                }
+                else
+                {
+                    Console.Write("[ ] ");
+                }
+                Console.Write($"{districts[key].Name} | liczba taxi: ");
+                if (districts[key].Cabs.Count < 1)
+                {
+                    Console.ForegroundColor = ConsoleColor.Red;
+                }
+                if (districts[key].Cabs.Count > 1)
+                {
+                    Console.ForegroundColor = ConsoleColor.Green;
+                }
+                Console.WriteLine($"{districts[key].Cabs.Count}");
+                Console.ForegroundColor = ConsoleColor.White;
+            }
         }
     }
 }
