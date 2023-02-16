@@ -50,7 +50,7 @@ namespace Taxi
 
         public void districtList(List<District> districts)
         {
-            Console.WriteLine("Dokąd chcesz zamówić taksówke?");
+            Console.WriteLine("Dokąd możesz zamówić taksówkę");
             Console.WriteLine("-----------------------------------");
             Console.WriteLine("");
             Console.WriteLine("   | NAZWA | ILOŚĆ DOSTĘPNYCH TAKSÓWEK |");
@@ -70,6 +70,8 @@ namespace Taxi
                 Console.WriteLine($"{districts[key].Cabs.Count}");
                 Console.ForegroundColor = ConsoleColor.White;
             }
+            Console.WriteLine("");
+            Console.WriteLine("Aby powrócić do menu kliknij escape...");
         }
 
         public void cabList(List<Cab> cabs)
@@ -83,12 +85,15 @@ namespace Taxi
             foreach ( var cab in cabs) {
                 if (cab.Status) {
                     Console.ForegroundColor = ConsoleColor.Red;
-                    Console.WriteLine($" - {cab.Id} | {cab.Name} | Zajęta");
+                    Console.WriteLine($" |  {cab.Id} | {cab.Name} | Zajęta");
                 } else {
                     Console.ForegroundColor = ConsoleColor.Green;
-                    Console.WriteLine($" - {cab.Id} | {cab.Name} | Wolna");
+                    Console.WriteLine($" |  {cab.Id} | {cab.Name} | Wolna");
                 }
             }
+            Console.ForegroundColor = ConsoleColor.White;
+            Console.WriteLine("");
+            Console.WriteLine("Aby powrócić do menu kliknij escape...");
         }
 
         public void summary(string[] data)
