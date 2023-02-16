@@ -23,8 +23,6 @@ namespace Taxi
 
         }
 
-    
-
         public void menu() 
         {
             Console.Clear();
@@ -45,7 +43,9 @@ namespace Taxi
                 Console.WriteLine($"{list[key]}");
             }
             Console.WriteLine();
-            Console.WriteLine("Kliknij escape jeśli chcesz zamknąć program");
+            Console.WriteLine("Kliknij enter jeśli chcesz przejść dalej...");
+            Console.WriteLine("Kliknij escape jeśli chcesz zamknąć program...");
+            
         }
 
         public void districtList(List<District> districts)
@@ -79,10 +79,11 @@ namespace Taxi
             foreach ( var cab in cabs) {
                 if (cab.Status) {
                     Console.ForegroundColor = ConsoleColor.Red;
+                    Console.WriteLine($" - {cab.Id} {cab.Name} Zajęta");
                 } else {
                     Console.ForegroundColor = ConsoleColor.Green;
+                    Console.WriteLine($" - {cab.Id} {cab.Name} Wolna");
                 }
-                Console.WriteLine($" - {cab.Id} {cab.Name} {cab.Status}");
             }
         }
 
