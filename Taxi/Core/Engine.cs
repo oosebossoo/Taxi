@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -21,13 +22,47 @@ namespace Taxi
             }
         }
 
-        public void sendCab(District district)
+        public string[] sendCab()
         {
-            if (district.Cabs.Count > 0) {
-                this.changeCabStatus(district.Cabs[0]);
+            int cabId = 0;
+            var district = AllDistrict.Where(x => x.Id == view.pos + 1).First();
+            if (district.Cabs.Where(x => x.Status == false).ToList().Count > 0) {
+                cabId = district.Cabs.Where(x => x.Status == false).ToList()[0].Id;
+                Console.WriteLine(cabId);
+            } else if (district.Cabs.Where(x => x.Status == false).ToList().Count() == 0) {
+                var cabs = AllCabs.Where(x => x.Status == false).ToList();
+                int road = 100;
+                int id = 0;
+                foreach(var cabFree in cabs) {
+                    int tmp = Math.Abs(AllDistrict.Where(x => x.Id == cabFree.DistrictId).ToList()[0].Distancetocenter) + Math.Abs(AllDistrict.Where(x => x.Id == view.pos+1).ToList()[0].Distancetocenter);
+                    if (tmp < road) { 
+                        road = tmp;
+                        id = cabFree.Id;
+                    }
+                }
+                cabId = id;
             } else {
-
+                int road = 100;
+                int id = 0;
+                foreach (var cabFree in AllCabs) {
+                    int tmp = Math.Abs(AllDistrict.Where(x => x.Id == cabFree.DistrictId).ToList()[0].Distancetocenter) + Math.Abs(AllDistrict.Where(x => x.Id == view.pos + 1).ToList()[0].Distancetocenter);
+                    if (tmp < road) {
+                        road = tmp;
+                        id = cabFree.Id;
+                    }
+                }
+                cabId = id;
             }
+
+            var cab = AllCabs.Where(x => x.Id == cabId).First();
+            AllDistrict.Where(x => x.Id == cab.DistrictId).ToList()[0].Cabs.Remove(cab);
+            cab.Status = true;
+            district.Cabs.Add(cab);
+            cab.DistrictId = district.Id;
+
+            string time = Convert.ToString(calcTime(cab.Id, AllDistrict.Where(x => x.Id == view.pos+1).First().Id));
+            string[] response = { cab.Name, time };
+            return response;
         }
 
         public void loadAllCabs()
@@ -54,12 +89,72 @@ namespace Taxi
 
         public bool controll()
         {
-            // if () ;
-            view.loadView();
-            // view.loadView(AllDistrict);
+            Console.Clear();
+            loadView();
+
+            switch (Console.ReadKey().Key)
+            {
+                case ConsoleKey.Enter:
+                    confirm();
+                    break;
+                case ConsoleKey.UpArrow:
+                    view.pos = view.pos - 1;
+                    break;
+                case ConsoleKey.DownArrow:
+                    view.pos = view.pos + 1;
+                    break;
+                case ConsoleKey.Escape:
+                    if (view.viewName == "menu") { return true; } else { view.viewName = "menu"; }
+                    break;
+            }
+
             return false;
         }
 
+        public void loadView()
+        {
+            Console.ForegroundColor = ConsoleColor.White;
+            switch (view.viewName)
+            {
+                case "menu":
+                    view.menu();
+                    break;
+                case "start":
+                    view.welcome();
+                    break;
+                case "districtList":
+                    view.districtList(AllDistrict);
+                    break;
+                case "cabList":
+                    view.cabList(AllCabs);
+                    break;
+                default:
+                    break;
+            }
+        }
 
+        void confirm()
+        {
+            switch (view.viewName)
+            {
+                case "menu":
+                    if (view.pos == 0) { view.viewName = "cabList"; }
+                    if (view.pos == 1) { view.viewName = "districtList"; }
+                    if (view.pos == 2) { view.viewName = "districtList"; }
+                    view.pos = 0;
+                    break;
+                case "districtList":
+                    string[] data = sendCab();
+                    view.pos = 0;
+                    view.summary(data);
+                    break;
+            }
+        }
+
+        int calcTime(int cabId, int distId)
+        {
+            int time = 0;
+            return time;
+        }
     }
 }

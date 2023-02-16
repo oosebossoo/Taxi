@@ -17,22 +17,7 @@ namespace Taxi
             while (true)
             {
                 if (Engine.controll()) break;
-                Console.ReadKey();
             }
-
-            //foreach (var cab in engine.AllCabs)
-            //{
-            //    Console.WriteLine(cab.Name);
-            //}
-
-            //Console.WriteLine("-----------------");
-
-            //foreach (var district in engine.AllDistrict)
-            //{
-            //    Console.WriteLine(district.Name);
-            //}
-
-            Console.ReadKey();
         }
     }
 }
